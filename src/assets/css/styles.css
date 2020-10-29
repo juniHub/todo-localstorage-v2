@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+*:focus {
+  outline: 0px;
+  outline-offset: 0;
+  background-color: teal;
+  color: white;
+}
+
+body {
+  background: url(../todo.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#container-box {
+  height: 400px;
+  overflow: auto;
+}
+
+#list-heading {
+  color: lightgray;
+  font-weight: lighter;
+}
+
+.todo-app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  min-height: 100vh;
+  background: teal;
+  text-align: center;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  float: right;
+}
+
+.todo-input {
+  padding: 15px;
+}
+
+.todo-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: grey;
+}
+
+.complete {
+  text-decoration: line-through;
+  opacity: 0.4;
+}
+
+button {
+  font-family: inherit;
+  font-size: 100%;
+  cursor: pointer;
+  margin: 0;
+  padding: 0.8rem 1rem 0.8rem;
+  border: none;
+  background-color: orange;
+  border-radius: 20px 20px 0 0;
+}
+
+.toggle-btn[aria-pressed='true'] {
+  text-transform: capitalize;
+  text-decoration: underline;
+  background-color: teal;
+  color: white;
+}
+
+.todo-edit-btn {
+  border-radius: 10px 10px 0 0 !important;
+  width: 80px;
+}
+
+.todo-add-btn {
+  border-radius: 10px 10px 0 0 !important;
+  width: 80px !important;
+  color: white !important;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+.btn-group > * {
+  flex: 1 1 49%;
+}
+.btn-group > * + * {
+  margin-left: 0.8rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  .todo-app {
+    width: 100%;
+  }
+}
