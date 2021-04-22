@@ -15,6 +15,8 @@ import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { withTheme } from "./components/Theme/Theme";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Button from "@material-ui/core/Button";
+import Brightness4Icon from '@material-ui/icons/Brightness4';
 import Switch from "@material-ui/core/Switch";
 
 const useStyles = makeStyles((theme) => ({
@@ -93,12 +95,17 @@ function App ( props )
 
   return (
     <div className="todo-app">
+      <Grid className="dark-light-mode">
+        <Button size="large" checked={ darkMode } onClick={ () => setDarkMode( !darkMode ) }><Brightness4Icon style={ {fontSize: '40px', color: 'orange'} }/></Button>
+      </Grid>
+      
       <Grid 
       className={ classes.root }
       container
       justify="center"
       alignItems={matches ? "flex-start" : "center"}
       >
+        
       <Grid item>
       <Paper elevation={8}>
       <Form addTodo={addTodo} />
@@ -108,23 +115,22 @@ function App ( props )
       <h2 id="list-heading" tabIndex="-1" ref={listHeadingRef}>
         {headingText}
       </h2>
-      <List
-              id="container-box"
-      >
+      <List id="container-box">
         {todoList}
       </List>
-        </Paper>
-         <FormControlLabel
-          control={
-            <Switch
-              checked={darkMode}
-              onChange={() => setDarkMode(!darkMode)}
-            />
-          }
-          label="Dark Mode"
-          />
-             </Grid>
-        </Grid>
+   
+          </Paper>
+      
+      <Grid className="footer">
+          
+            Todo List icon by <a href="https://icons8.com/icon/114426/todo-list" target="_blank" rel="noopener noreferrer">Icons8</a>
+            <br/>
+            Background Image by <a href="https://undraw.co/" target="_blank" rel="noopener noreferrer">unDraw</a>
+      
+      </Grid>
+      </Grid>
+        
+     </Grid>
     </div>
   );
 }

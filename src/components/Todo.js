@@ -14,6 +14,9 @@ import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 
+import { SketchPicker } from "react-color";
+import PaletteIcon from '@material-ui/icons/Palette';
+
 const useStyles = makeStyles((theme) => ({
   textField: {
     width: 400,
@@ -41,6 +44,20 @@ export default function Todo(props) {
 
   const wasEditing = usePrevious( isEditing );
   const labelUpdate = "Would you like to update " + props.name + "?";
+
+  const [ show, setShow ] = useState( false );
+  
+  const initialColor = () => String(window.localStorage.getItem('color') || '#fff');
+ 
+  const [color, setColor] = useState(initialColor);
+
+  useEffect(() =>{
+
+    window.localStorage.setItem('color', color)
+  }, [color])
+  
+
+
 
   function handleChange(e) {
     setNewName(e.target.value);
@@ -105,11 +122,48 @@ export default function Todo(props) {
 
   const viewTemplate = (
    
-     <List>
+    <List>
+      
          
-              <ListItem key={ props.id }>
-                <ListItemText primary={ props.name }  className={props.completed ? 'todo-row complete' : 'todo-row'} />
-                <ListItemSecondaryAction>
+      <ListItem key={ props.id }
+           
+        style={ {
+          display: 'flex',
+          flexDirection: "column",
+          justifyContent: 'center',
+          alignContent: 'center',
+          textAlign: 'center',
+          
+          backgroundColor: color,
+          transition: "ease all 500ms",
+          margin: "0.5rem",
+         
+          height: '100px'
+        }}
+      
+     
+      
+      >
+        <div>
+          <ListItemText primary={ props.name } className={ props.completed ? 'todo-row complete' : 'todo-row' } />
+        </div>
+        
+        <ListItemSecondaryAction
+        
+          style={{
+          backgroundColor: "gold" ,
+          margin: "0.5rem",
+          padding: "0.5rem",
+          borderRadius: "20px",
+          height: '50px'
+        }}
+      
+        
+        >
+                   <IconButton size="medium" style={{ color: '#8bd3dd' }} onClick={() => {
+                    setShow(!show);
+                  } }><PaletteIcon fontSize="medium" /></IconButton>
+          
                   <Checkbox
                     checked={ props.completed }
                     onClick={() => props.toggleTaskCompleted(props.id)}
@@ -128,8 +182,19 @@ export default function Todo(props) {
                              
                   </IconButton>
                  
-                </ListItemSecondaryAction>
-              </ListItem>
+        </ListItemSecondaryAction>
+        
+      </ListItem>
+      
+      <div className={show ? "colorPicker" : "hiddenElement"}>
+      <SketchPicker
+       
+        color={color}
+        onChangeComplete={(color) => {
+          setColor(color.hex);
+        }}
+      />
+      </div>
           
         </List>
 
