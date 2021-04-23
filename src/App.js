@@ -135,9 +135,7 @@ function App ( props )
       <Grid className="footer">
           
             Todo List icon by <a href="https://icons8.com/icon/114426/todo-list" target="_blank" rel="noopener noreferrer">Icons8</a>
-            <br/>
-            Background Image by <a href="https://undraw.co/" target="_blank" rel="noopener noreferrer">unDraw</a>
-      
+              
       </Grid>
       </Grid>
         
