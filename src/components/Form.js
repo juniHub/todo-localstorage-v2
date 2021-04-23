@@ -7,9 +7,10 @@ import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles((theme) => ({
   textField: {
-    width: 400,
+   
+    width: 300,
     [theme.breakpoints.down("xs")]: {
-      width: 200,
+    width: 280,
     },
   },
 }));

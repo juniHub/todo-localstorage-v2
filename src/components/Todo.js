@@ -6,10 +6,14 @@ import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import ListItemText from "@material-ui/core/ListItemText";
+
 import Checkbox from "@material-ui/core/Checkbox";
 import IconButton from "@material-ui/core/IconButton";
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import Tooltip from '@material-ui/core/Tooltip';
 
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
@@ -17,13 +21,17 @@ import EditIcon from "@material-ui/icons/Edit";
 import { SketchPicker } from "react-color";
 import PaletteIcon from '@material-ui/icons/Palette';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles( ( theme ) => ( {
+  
   textField: {
-    width: 400,
+     width: 300,
+ 
     [theme.breakpoints.down("xs")]: {
-      width: 200,
+      width: 280,
     },
   },
+
+ 
 }));
 
 function usePrevious(value) {
@@ -122,67 +130,126 @@ export default function Todo(props) {
 
   const viewTemplate = (
    
-    <List>
-      
-         
-      <ListItem key={ props.id }
-           
-        style={ {
+    <List
+       style={ {
           display: 'flex',
           flexDirection: "column",
           justifyContent: 'center',
-          alignContent: 'center',
+          alignItems: 'center',
+          textAlign: 'center',
+          
+          backgroundColor: '#fef6e4',
+          transition: "ease all 500ms",
+ 
+          
+          height: '100%',
+          width: '100%',
+          minHeight: '300px',
+          maxWidth: '100vw',
+        }}
+      
+    >
+      
+         
+      <ListItem key={ props.id } >
+         
+        
+        <Card 
+          style={ {
+          display: 'flex',
+          flexDirection: "column",
+          justifyContent: 'center',
+          alignItems: 'center',
           textAlign: 'center',
           
           backgroundColor: color,
           transition: "ease all 500ms",
-          margin: "0.5rem",
+          height: '100%',
+          width: '100%',
          
-          height: '100px'
+           
+          
         }}
-      
-     
-      
-      >
-        <div>
-          <ListItemText primary={ props.name } className={ props.completed ? 'todo-row complete' : 'todo-row' } />
-        </div>
-        
-        <ListItemSecondaryAction
-        
-          style={{
-          backgroundColor: "gold" ,
-          margin: "0.5rem",
-          padding: "0.5rem",
-          borderRadius: "20px",
-          height: '50px'
-        }}
-      
         
         >
-                   <IconButton size="medium" style={{ color: '#8bd3dd' }} onClick={() => {
-                    setShow(!show);
-                  } }><PaletteIcon fontSize="medium" /></IconButton>
+          <CardContent
+            
+          style={ {
           
-                  <Checkbox
+          textAlign: 'center',
+          minHeight: '150px',
+          width: '100%',
+          height: '100%',
+          overflow: 'auto',
+          padding: '1rem',
+          margin: '1rem',
+           
+          
+        }}
+          
+          >
+        <Typography className={ props.completed ? 'todo-row complete' : 'todo-row' }  color="textSecondary" gutterBottom>
+           <h4>{ props.name } </h4> 
+        </Typography>
+       
+       
+      </CardContent>
+          <CardActions
+            
+          style={{
+          backgroundColor: "#fde24f" ,
+          borderRadius: "20px",
+          height: '50px',
+         
+          padding: '1rem',
+          margin: '1rem',
+       
+        }}
+          
+          >
+       
+      
+            <Tooltip title="showColor/unShowColor" placement="top">
+                   <IconButton size="medium" style={{ color: 'purple' }}
+                    ><PaletteIcon onClick={() => 
+                  setShow( !show ) } /></IconButton>
+            </Tooltip>
+            
+             <Tooltip title="completed/uncompleted" placement="top">
+          
+                  <Checkbox style={{ color: 'black' }}
                     checked={ props.completed }
                     onClick={() => props.toggleTaskCompleted(props.id)}
                    
-                  />
+              />
+              </Tooltip>
 
-                   <IconButton >
+             <Tooltip title="edit" placement="top">
+                   <IconButton style={{color: 'teal'}} >
                   
                    <EditIcon onClick={() => setEditing(true)}
-          ref={editButtonRef} />
+                  ref={editButtonRef} />
                     
-                  </IconButton>
+              </IconButton>
+              
+            </Tooltip>
+            
+             <Tooltip title="delete" placement="top">
 
-                  <IconButton >
-            <DeleteIcon onClick={ () => props.removeTodo( props.id ) } color="primary" />
+                  <IconButton style={{color: 'red'}}>
+                  <DeleteIcon onClick={ () => props.removeTodo( props.id ) } />
                              
-                  </IconButton>
+            </IconButton>
+            
+            </Tooltip>
                  
-        </ListItemSecondaryAction>
+      
+
+      </CardActions>
+    </Card>
+
+        
+       
         
       </ListItem>
       

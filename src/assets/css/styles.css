@@ -15,13 +15,12 @@
 }
 
 body {
-  background: url(../todo.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
+ background: #fef6e4;
 }
 
 #container-box {
-  height: 400px;
+  height: 100%;
+  width: 100%;
   overflow: auto;
 }
 
@@ -35,7 +34,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 70%;
+  width: 100%;
   min-height: 100vh;
   background: teal;
   text-align: center;
@@ -47,6 +46,9 @@ body {
 
 .todo-input {
   padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .todo-row {
@@ -80,14 +82,17 @@ button {
 }
 
 .todo-edit-btn {
-  border-radius: 10px 10px 0 0 !important;
+  border-radius: 20px !important;
   width: 80px;
 }
 
 .todo-add-btn {
-  border-radius: 10px 10px 0 0 !important;
+  border-radius: 20px !important;
   width: 80px !important;
   color: white !important;
+  margin: 1rem !important;
+ 
+  
 }
 
 .btn-group {
@@ -104,8 +109,14 @@ button {
 
 .dark-light-mode{
 
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  justify-items: left;
   margin: 1rem;
   padding: 1rem;
+  width: 100%;
 
  
 }

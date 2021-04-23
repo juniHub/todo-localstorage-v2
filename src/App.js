@@ -14,12 +14,14 @@ import Paper from "@material-ui/core/Paper";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { withTheme } from "./components/Theme/Theme";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Button from "@material-ui/core/Button";
-import Brightness4Icon from '@material-ui/icons/Brightness4';
-import Switch from "@material-ui/core/Switch";
 
-const useStyles = makeStyles((theme) => ({
+import IconButton from "@material-ui/core/IconButton";
+import Brightness4Icon from '@material-ui/icons/Brightness4';
+
+import Tooltip from '@material-ui/core/Tooltip';
+
+const useStyles = makeStyles( ( theme ) => ( {
+  
   root: {
     width: "100%",
     height: "100%",
@@ -95,8 +97,17 @@ function App ( props )
 
   return (
     <div className="todo-app">
+      
       <Grid className="dark-light-mode">
-        <Button size="large" checked={ darkMode } onClick={ () => setDarkMode( !darkMode ) }><Brightness4Icon style={ {fontSize: '40px', color: 'orange'} }/></Button>
+        <div style={ { width: '100%', display: 'flex', alignItems: 'center', marginLeft: '1rem' } }>
+        <img src="https://img.icons8.com/bubbles/50/000000/todo-list.png" width="80px" height="80px" alt="logo"/>
+          <h1 style={{color: 'orange'}}>Juni List</h1>
+        </div>
+       
+         <Tooltip title="Dark Mode/Light Mode" placement="top">
+          <IconButton style={{marginRight: '1rem'}} size="large" checked={ darkMode } onClick={ () => setDarkMode( !darkMode ) }><Brightness4Icon style={ { fontSize: '40px', color: 'orange' } } /></IconButton>
+          </Tooltip>
+    
       </Grid>
       
       <Grid 
