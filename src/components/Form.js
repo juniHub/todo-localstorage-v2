@@ -48,8 +48,8 @@ function Form ( props )
             label="What is your plan today?"
             variant="outlined"
             size="small"
-           value={name}
-        onChange={handleChange}
+            value={name}
+            onChange={handleChange}
           />
         </Grid>
         <Grid item>

@@ -24,8 +24,8 @@ import PaletteIcon from '@material-ui/icons/Palette';
 const useStyles = makeStyles( ( theme ) => ( {
   
   textField: {
-     width: 300,
- 
+    width: 300,
+    
     [theme.breakpoints.down("xs")]: {
       width: 280,
     },
@@ -51,7 +51,8 @@ export default function Todo(props) {
   const editButtonRef = useRef(null);
 
   const wasEditing = usePrevious( isEditing );
-  const labelUpdate = "Would you like to update " + props.name + "?";
+  const labelUpdate = "Do you like to update " + props.name.substr( 0, 10 ) + "...?";
+ 
 
   const [ show, setShow ] = useState( false );
   
@@ -82,7 +83,7 @@ export default function Todo(props) {
   }
 
   const editingTemplate = (
-    <form className="todo-form" onSubmit={handleSubmit}>
+    <>
      
         <Grid container className="todo-input">
         <Grid item>
@@ -104,7 +105,10 @@ export default function Todo(props) {
               type="submit"
               className="todo-edit-btn"
               variant="contained"
-              color="secondary">
+              color="secondary"
+              onClick={handleSubmit}
+
+            >
             
           Save
          
@@ -125,7 +129,7 @@ export default function Todo(props) {
             </Grid>
            </Grid>
  
-    </form>
+    </>
   );
 
   const viewTemplate = (
