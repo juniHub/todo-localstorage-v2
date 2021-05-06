@@ -18,7 +18,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 
-import { SketchPicker } from "react-color";
+import { CirclePicker } from "react-color";
 import PaletteIcon from '@material-ui/icons/Palette';
 
 const useStyles = makeStyles( ( theme ) => ( {
@@ -167,6 +167,7 @@ export default function Todo(props) {
           textAlign: 'center',
           
           backgroundColor: color,
+          
           transition: "ease all 500ms",
           height: '100%',
           width: '100%',
@@ -187,12 +188,12 @@ export default function Todo(props) {
           overflow: 'auto',
           padding: '1rem',
           margin: '1rem',
-           
+        
           
         }}
           
           >
-        <Typography className={ props.completed ? 'todo-row complete' : 'todo-row' }  color="textSecondary" gutterBottom>
+        <Typography className={ props.completed ? 'todo-row complete' : 'todo-row' } style={{color: 'lightgrey'}} gutterBottom>
            <h4>{ props.name } </h4> 
         </Typography>
        
@@ -258,7 +259,7 @@ export default function Todo(props) {
       </ListItem>
       
       <div className={show ? "colorPicker" : "hiddenElement"}>
-      <SketchPicker
+      <CirclePicker
        
         color={color}
         onChangeComplete={(color) => {
