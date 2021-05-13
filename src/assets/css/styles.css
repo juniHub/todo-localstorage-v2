@@ -18,11 +18,6 @@ body {
  background: #fef6e4;
 }
 
-#container-box {
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-}
 
 #list-heading {
   color: lightgray;
@@ -35,27 +30,56 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
+ 
   background: teal;
   text-align: center;
   margin: 0 auto;
   padding-bottom: 20px;
   padding-top: 20px;
-  float: right;
+
 }
 
 .todo-input {
-  padding: 15px;
+  padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.todo-row {
+.todo{
+
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+flex-wrap: wrap;
+
+padding: 1rem;
+
+}
+
+.todo-card{
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  color: grey;
+  text-align: center;
+
+
+  
+  background-image: linear-gradient(yellow, gold, orange);
+
+
+  transition: ease all 500ms;
+  height: 300px;
+  width: 300px;
+
+  overflow: auto;
+ 
+   box-shadow: 3px 3px 5px 6px #ccc;
+
 }
 
 .complete {
@@ -65,13 +89,14 @@ body {
 
 button {
   font-family: inherit;
-  font-size: 100%;
+  font-size: 20px;
   cursor: pointer;
   margin: 0;
   padding: 0.8rem 1rem 0.8rem;
   border: none;
   background-color: orange;
   border-radius: 20px 20px 0 0;
+  min-width: 80px;
 }
 
 .toggle-btn[aria-pressed='true'] {
@@ -84,11 +109,12 @@ button {
 .todo-edit-btn {
   border-radius: 20px !important;
   width: 80px;
+    margin: 0.5rem !important;
 }
 
 .todo-add-btn {
   border-radius: 20px !important;
-  width: 80px !important;
+  width: 80px;
   color: white !important;
   margin: 1rem !important;
  
@@ -138,6 +164,7 @@ button {
  
 
 .footer {
+  
    margin: 1rem;
    padding: 1rem;
   
@@ -150,8 +177,3 @@ button {
    color: gold;
 }
 
-@media only screen and (max-width: 1024px) {
-  .todo-app {
-    width: 100%;
-  }
-}

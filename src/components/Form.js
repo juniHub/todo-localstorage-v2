@@ -7,11 +7,9 @@ import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles((theme) => ({
   textField: {
+    width: '100%',
+    minWidth: '280x',
    
-    width: 300,
-    [theme.breakpoints.down("xs")]: {
-    width: 280,
-    },
   },
 }));
 
@@ -37,10 +35,7 @@ function Form ( props )
   }
 
   return (
-    
-
-     <>
-    
+        
       <Grid container className="todo-input">
         <Grid item>
           <TextField
@@ -66,13 +61,7 @@ function Form ( props )
           </Box>
         </Grid>
         </Grid>
-      
-        </>
-    
-
-
-    
-    
+ 
   );
 }
 

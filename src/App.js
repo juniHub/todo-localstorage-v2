@@ -4,15 +4,12 @@ import FilterButton from "./components/FilterButton";
 import Todo from "./components/Todo";
 
 import Grid from "@material-ui/core/Grid";
-import List from "@material-ui/core/List";
 import { useTodos } from "./components/store/Store";
 import { withProvider } from "./components/store/Store";
 
 import { makeStyles } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 
-import { useTheme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { withTheme } from "./components/Theme/Theme";
 
 import IconButton from "@material-ui/core/IconButton";
@@ -43,7 +40,7 @@ function usePrevious(value) {
 const FILTER_MAP = {
   All: () => true,
   Active: task => !task.completed,
-  Completed: task => task.completed
+  Done: task => task.completed
 };
 
 const FILTER_NAMES = Object.keys( FILTER_MAP );
@@ -53,15 +50,14 @@ function App ( props )
   
   const { darkMode, setDarkMode } = props;
   const classes = useStyles();
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("xs"));
-
+  
   const [ filter, setFilter ] = useState( 'All' );
   const { todos, toggleTodo, removeTodo, updateTodo, addTodo } = useTodos();
     
   const todoList = todos
   .filter(FILTER_MAP[filter])
-  .map(todo => (
+    .map( todo => (
+    
     <Todo
       id={todo.id}
       name={todo.text}
@@ -70,7 +66,9 @@ function App ( props )
       toggleTaskCompleted={toggleTodo}
       removeTodo={removeTodo}
       updateTodo={updateTodo}
-    />
+        />
+    
+    
   ));
 
   const filterList = FILTER_NAMES.map(name => (
@@ -96,6 +94,7 @@ function App ( props )
   }, [todos.length, prevTaskLength]);
 
   return (
+    
     <div className="todo-app">
       
       <Grid className="dark-light-mode">
@@ -110,11 +109,10 @@ function App ( props )
     
       </Grid>
       
-      <Grid 
+      <Grid
+        
       className={ classes.root }
-      container
-      justify="center"
-      alignItems={matches ? "flex-start" : "center"}
+    
       >
         
       <Grid item>
@@ -126,21 +124,26 @@ function App ( props )
       <h2 id="list-heading" tabIndex="-1" ref={listHeadingRef}>
         {headingText}
       </h2>
-      <List id="container-box">
-        {todoList}
-      </List>
+    
+        <div className="todo">
+              { todoList }
+        </div>
+  
    
-          </Paper>
-      
-      <Grid className="footer">
+        </Paper>
+          
+        </Grid>
+        
+     </Grid>
+       <Grid className="footer">
           
             Todo List icon by <a href="https://icons8.com/icon/114426/todo-list" target="_blank" rel="noopener noreferrer">Icons8</a>
               
       </Grid>
-      </Grid>
-        
-     </Grid>
-    </div>
+   
+      </div>
+         
+  
   );
 }
 

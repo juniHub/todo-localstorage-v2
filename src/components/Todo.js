@@ -1,11 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { makeStyles } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
+
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 
 import Checkbox from "@material-ui/core/Checkbox";
 import IconButton from "@material-ui/core/IconButton";
@@ -23,13 +22,11 @@ import PaletteIcon from '@material-ui/icons/Palette';
 
 const useStyles = makeStyles( ( theme ) => ( {
   
-  textField: {
-    width: 300,
-    
-    [theme.breakpoints.down("xs")]: {
-      width: 280,
-    },
-  },
+ 
+   textField: {
+    width: '100%',
+    minWidth: '280px',
+   },
 
  
 }));
@@ -83,7 +80,7 @@ export default function Todo(props) {
   }
 
   const editingTemplate = (
-    <>
+   
      
         <Grid container className="todo-input">
         <Grid item>
@@ -129,52 +126,22 @@ export default function Todo(props) {
             </Grid>
            </Grid>
  
-    </>
   );
 
   const viewTemplate = (
-   
-    <List
-       style={ {
-          display: 'flex',
-          flexDirection: "column",
-          justifyContent: 'center',
-          alignItems: 'center',
-          textAlign: 'center',
-          
-          backgroundColor: '#fef6e4',
-          transition: "ease all 500ms",
  
-          
-          height: '100%',
-          width: '100%',
-          minHeight: '300px',
-          maxWidth: '100vw',
-        }}
-      
-    >
-      
-         
-      <ListItem key={ props.id } >
-         
-        
-        <Card 
+            
+    <Card
+       className="todo-card"
           style={ {
-          display: 'flex',
-          flexDirection: "column",
-          justifyContent: 'center',
-          alignItems: 'center',
-          textAlign: 'center',
-          
-          backgroundColor: color,
-          
-          transition: "ease all 500ms",
-          height: '100%',
-          width: '100%',
          
-           
           
-        }}
+            backgroundColor: color,
+            backgroundImage: 'linearGradient(color, gold, orange)',
+                   
+          } }
+          
+           key={ props.id }
         
         >
           <CardContent
@@ -182,10 +149,6 @@ export default function Todo(props) {
           style={ {
           
           textAlign: 'center',
-          minHeight: '150px',
-          width: '100%',
-          height: '100%',
-          overflow: 'auto',
           padding: '1rem',
           margin: '1rem',
         
@@ -193,28 +156,31 @@ export default function Todo(props) {
         }}
           
           >
-        <Typography className={ props.completed ? 'todo-row complete' : 'todo-row' } style={{color: 'lightgrey'}} gutterBottom>
+        <Typography className={ props.completed ? 'complete' : '' } style={{color: 'black'}} gutterBottom>
            <h4>{ props.name } </h4> 
         </Typography>
        
        
       </CardContent>
-          <CardActions
+      <CardActions
             
-          style={{
+          style={ {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+           width: '280px',
           backgroundColor: "#fde24f" ,
           borderRadius: "20px",
           height: '50px',
-         
-          padding: '1rem',
-          margin: '1rem',
+               
+          padding: '1rem 0',
+          margin: '1rem 0',
        
         }}
-          
+   
           >
        
-      
-            <Tooltip title="showColor/unShowColor" placement="top">
+              <Tooltip title="showColor/unShowColor" placement="top">
                    <IconButton size="medium" style={{ color: 'purple' }}
                     ><PaletteIcon onClick={() => 
                   setShow( !show ) } /></IconButton>
@@ -250,14 +216,9 @@ export default function Todo(props) {
                  
       
 
-      </CardActions>
-    </Card>
-
-        
-       
-        
-      </ListItem>
-      
+        </CardActions>
+            
+               
       <div className={show ? "colorPicker" : "hiddenElement"}>
       <CirclePicker
        
@@ -267,10 +228,10 @@ export default function Todo(props) {
         }}
       />
       </div>
-          
-        </List>
-
-    
+      </Card>
+     
+ 
+        
   );
 
 
