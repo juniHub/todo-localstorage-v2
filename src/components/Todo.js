@@ -53,7 +53,7 @@ export default function Todo(props) {
 
   const [ show, setShow ] = useState( false );
   
-  const initialColor = () => String(window.localStorage.getItem('color') || '#ffd803');
+  const initialColor = () => String(window.localStorage.getItem('color')) || '#ffd803';
  
   const [color, setColor] = useState(initialColor);
 
@@ -132,7 +132,7 @@ export default function Todo(props) {
  
             
     <Card
-       className="todo-card"
+      className="todo-card"
       style={{
   
         backgroundColor: color,
