@@ -53,7 +53,7 @@ export default function Todo(props) {
 
   const [ show, setShow ] = useState( false );
   
-  const initialColor = () => String(window.localStorage.getItem('color') || '#fff');
+  const initialColor = () => String(window.localStorage.getItem('color') || '#ffd803');
  
   const [color, setColor] = useState(initialColor);
 
@@ -133,17 +133,15 @@ export default function Todo(props) {
             
     <Card
        className="todo-card"
-          style={ {
-         
-          
-            backgroundColor: color,
-            backgroundImage: 'linearGradient(color, gold, orange)',
-                   
-          } }
-          
-           key={ props.id }
+      style={{
+  
+        backgroundColor: color,
         
-        >
+      }}
+          
+      key={ props.id }
+        
+    >
           <CardContent
             
           style={ {
