@@ -134,8 +134,7 @@ _For more examples, please refer to the [Documentation](https://junitiennguyen.g
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/juniHub/todo-localstorage-v2
-/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/juniHub/todo-localstorage-v2/issues) for a list of proposed features (and known issues).
 
 
 
@@ -164,9 +163,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Juni Nguyen - [hellojuninguyen@gmail.com](hellojuninguyen@gmail.com)
 
-Project Link: [https://github.com/juniHub/todo-localstorage-v2
-](https://github.com/juniHub/todo-localstorage-v2
-)
+Project Link: [https://github.com/juniHub/todo-localstorage-v2](https://github.com/juniHub/todo-localstorage-v2)
 
 
 
