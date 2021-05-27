@@ -22,6 +22,7 @@ const useStyles = makeStyles( ( theme ) => ( {
   root: {
     width: "100%",
     height: "100%",
+   
     [theme.breakpoints.down("xs")]: {
       paddingTop: theme.spacing(2),
     },
@@ -66,7 +67,7 @@ function App ( props )
       toggleTaskCompleted={toggleTodo}
       removeTodo={removeTodo}
       updateTodo={updateTodo}
-        />
+      />
     
     
   ));
@@ -94,10 +95,9 @@ function App ( props )
   }, [todos.length, prevTaskLength]);
 
   return (
-    
-    <div className="todo-app">
+    <>
       
-      <Grid className="dark-light-mode">
+        <Grid className="dark-light-mode">
         <div style={ { width: '100%', display: 'flex', alignItems: 'center', marginLeft: '1rem' } }>
         <img src="https://img.icons8.com/bubbles/50/000000/todo-list.png" width="80px" height="80px" alt="logo"/>
           <h1 style={{color: 'orange'}}>Juni List</h1>
@@ -108,7 +108,8 @@ function App ( props )
           </Tooltip>
     
       </Grid>
-      
+    <div className="todo-app">
+   
       <Grid
         
       className={ classes.root }
@@ -135,13 +136,16 @@ function App ( props )
         </Grid>
         
      </Grid>
+    
+   
+    </div>
        <Grid className="footer">
-          
+            Made with React by <a href="https://hellojuninguyen.netlify.app/" target="_blank" rel="noopener noreferrer">Juni Nguyen </a>2020
+            <br/>
             Todo List icon by <a href="https://icons8.com/icon/114426/todo-list" target="_blank" rel="noopener noreferrer">Icons8</a>
               
       </Grid>
-   
-      </div>
+    </>
          
   
   );
