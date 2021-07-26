@@ -82,7 +82,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Juni-todo-screenshot](https://res.cloudinary.com/dafolrlpj/image/upload/v1622116045/gallery/y3c5c10x8jwx27o9ybfz.png)
+![Juni-todo-screenshot](https://res.cloudinary.com/dafolrlpj/image/upload/v1627304397/gallery/xkoirg5oljvhhlsikgcx.png)
 
 
 
